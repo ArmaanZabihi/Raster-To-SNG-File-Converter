@@ -2,7 +2,7 @@
 
 # Directories
 inputDirectory="/Users/armaanzabihi/Desktop/input" # Your input directory with raster images
-outputDirectory="/Users/armaanzabihi/Desktop/output" # Directory where the SNG files will be saved
+outputDirectory="/Users/armaanzabihi/Desktop/output" # Directory where the SVG files will be saved
 
 # Ensure the output directory exists
 mkdir -p "$outputDirectory"
@@ -17,11 +17,11 @@ for inputFile in "$inputDirectory"/*; do
   #pngFile="$outputDirectory/$baseName.png"
   #convert "$inputFile" "$pngFile"
   
-  # Convert PNG to SNG
-  sngFile="$outputDirectory/$baseName.sng"
-  sng "$pngFile" > "$sngFile"
+  # Convert PNG to SVG
+  svgFile="$outputDirectory/$baseName.svg"
+  svg "$pngFile" > "$svgFile"
   
-  echo "Converted $inputFile to $sngFile"
+  echo "Converted $inputFile to $svgFile"
 done
 
 echo "Conversion complete."
