@@ -13,4 +13,4 @@ Smooth Shapes: Generates SVG files with smooth contours and curves, eliminating 
 # Get Started
 Place all JPEG or PNG images to be converted in a designated input folder.
 Run the script from your terminal or command prompt: ./convertToSvg.sh  
-# Support for help regarding this process please email me: at armaanzabihi@gmail.com
+# Support for help regarding this process please email me: armaanzabihi@gmail.com
