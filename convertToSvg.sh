@@ -9,19 +9,20 @@ mkdir -p "$outputDirectory"
 
 # Loop through each file in the input directory
 for inputFile in "$inputDirectory"/*; do
-  filename=$(basename -- "$inputFile")
-  baseName="${filename%.*}"
-  
-  # Convert to PNG (if necessary)
-  
-  #pngFile="$outputDirectory/$baseName.png"
-  #convert "$inputFile" "$pngFile"
-  
-  # Convert PNG to SVG
-  svgFile="$outputDirectory/$baseName.svg"
-  svg "$pngFile" > "$svgFile"
-  
-  echo "Converted $inputFile to $svgFile"
+  if [[ $inputFile == *.jpg ]] || [[ $inputFile == *.jpeg ]]; then
+    filename=$(basename -- "$inputFile")
+    baseName="${filename%.*}"
+    
+    # Intermediate PNG file (Potrace works with bitmaps, but we are skipping directly to SVG)
+    # pngFile="$outputDirectory/$baseName.png"
+    # convert "$inputFile" "$pngFile"
+
+    # Convert JPEG directly to SVG assuming potrace can handle it
+    svgFile="$outputDirectory/$baseName.svg"
+    convert "$inputFile" BMP3:- | potrace --svg -o "$svgFile"
+    
+    echo "Converted $inputFile to $svgFile"
+  fi
 done
 
 echo "Conversion complete."
