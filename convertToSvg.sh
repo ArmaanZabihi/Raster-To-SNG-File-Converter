@@ -13,16 +13,18 @@ for inputFile in "$inputDirectory"/*; do
     filename=$(basename -- "$inputFile")
     baseName="${filename%.*}"
     
-    # Intermediate PNG file (Potrace works with bitmaps, but we are skipping directly to SVG)
-    # pngFile="$outputDirectory/$baseName.png"
-    # convert "$inputFile" "$pngFile"
-
-    # Convert JPEG directly to SVG assuming potrace can handle it
+    # Define the output SVG file path
     svgFile="$outputDirectory/$baseName.svg"
-    convert "$inputFile" BMP3:- | potrace --svg -o "$svgFile"
+    
+    # Use Inkscape to convert JPEG directly to SVG
+    # Replace "/path/to/inkscape" with the full path to your Inkscape installation
+    /Applications/Inkscape.app/Contents/MacOS/inkscape "$inputFile" --export-type=svg --export-filename="$svgFile"
+   
     
     echo "Converted $inputFile to $svgFile"
   fi
 done
 
 echo "Conversion complete."
+
+
