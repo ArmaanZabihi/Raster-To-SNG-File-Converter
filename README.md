@@ -1,5 +1,5 @@
 # Raster-To-SVG-File-Converter
-This program will convert raster to SNG files
+This program will convert raster to SVG files
 JPEG to SVG Conversion Script
 
 This script automates the process of converting JPEG images to SVG (Scalable Vector Graphics) format, ensuring high fidelity, vibrant colors, and scalability without quality loss. Developed with expertise in image processing and raster-to-vector conversion techniques, this tool is designed for efficiency and precision.
